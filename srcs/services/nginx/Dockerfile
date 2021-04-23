@@ -6,7 +6,7 @@
 #    By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/22 23:36:36 by zxcvbinz          #+#    #+#              #
-#    Updated: 2021/04/23 15:47:35 by dlanotte         ###   ########.fr        #
+#    Updated: 2021/04/23 16:37:10 by dlanotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ EXPOSE 80 443 22
 
 RUN apk upgrade
 RUN apk update
-RUN apk add openssl nginx openrc
+RUN apk add openssl nginx
 
 COPY config-files/* config-files/
 COPY ninja_flex/* /var/www/ninja_flex/
