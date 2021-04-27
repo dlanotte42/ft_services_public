@@ -1,0 +1,36 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: phpmyadmin
+  labels:
+    app: phpmyadmin
+spec:
+  selector:
+    matchLabels:
+      app: phpmyadmin
+  template:
+    metadata:
+      labels:
+        app: phpmyadmin
+    spec:
+      containers:
+      - name: phpmyadmin
+        image: testphpmyadmin:latest
+        imagePullPolicy: Never
+        ports: 
+        - containerPort: 5000
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: phpmyadmin
+  labels:
+    app: phpmyadmin
+spec:
+  ports:
+  - port: 5000
+    targetPort: 80
+  type: LoadBalancer
+  selector:
+    app: phpmyadmin
