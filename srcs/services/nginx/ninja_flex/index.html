@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Ninjaflex</title>
 <script  type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" ></script>
-
+<link rel="stylesheet" href="style.css">
 
 <style type="text/css">
 .ninja{
@@ -24,33 +24,33 @@
 .xelf{
 	background-image:url(xelf.gif);
 }
-	
+
+.wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 35px auto;
+}
 </style>
 
 <script  type="text/javascript">
-$(document).ready(function() {
-	
+	$(document).ready(function() {	
 	$(".ninja").hover(
-  function () {
-    $(this).addClass("ajnin");
-  },
-  function () {
-    $(this).removeClass("ajnin");
-  }
-);
-
-
-
-	$(".flex").hover(
-  function () {
-    $(this).addClass("xelf");
-  },
-  function () {
-    $(this).removeClass("xelf");
-  }
-);
-
-});
+	function () {
+		$(this).addClass("ajnin");
+	},
+	function () {
+		$(this).removeClass("ajnin");
+	}
+	);
+		$(".flex").hover(
+	function () {
+		$(this).addClass("xelf");
+	},
+	function () {
+		$(this).removeClass("xelf");
+	}
+	);
+	});
 </script>
 
 </head>
@@ -70,12 +70,21 @@ $(document).ready(function() {
 <body>
 <div style="width:380px; margin:auto; margin-top:190px; height:190px">
 
-<div onmouseover="document.getElementById('ninjaaa').play()" class="ninja">
+	<div onmouseover="document.getElementById('ninjaaa').play()" class="ninja">
+	</div>
+	<div onmouseover="document.getElementById('fleeex').play()" class="flex">
+	</div>
 </div>
-
-<div onmouseover="document.getElementById('fleeex').play()" class="flex">
-</div>
-
+<div id="link">
+	<center>
+		<div class="presentation-content">
+			<h1 class="presentation-title">More Link</h1>
+		</div>
+		<div class="top-button-group">
+			<button class="retro-button"><a href="wordpress">Wordpress</a></button>
+			<button class="retro-button"><a href="phpmyadmin">Phpmyadmin</a></button>
+		</div>
+	</center>
 </div>
 </body>
 </html>
