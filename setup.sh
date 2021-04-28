@@ -8,6 +8,7 @@ docker build -t testnginx ./srcs/services/nginx/.
 docker build -t testphpmyadmin ./srcs/services/phpmyadmin/.
 docker build -t testwordpress ./srcs/services/wordpress/.
 docker build -t testmysql ./srcs/services/mysql/.
+docker build -t testftps ./srcs/services/ftps/.
 
 #   setup kubernets 
 
@@ -15,6 +16,7 @@ kubectl apply -f ./srcs/config-yaml/nginx.yaml
 kubectl apply -f ./srcs/config-yaml/phpmyadmin.yaml
 kubectl apply -f ./srcs/config-yaml/wordpress.yaml
 kubectl apply -f ./srcs/config-yaml/mysql.yaml
+kubectl apply -f ./srcs/config-yaml/ftps.yaml
 
 #   dashboard
 
