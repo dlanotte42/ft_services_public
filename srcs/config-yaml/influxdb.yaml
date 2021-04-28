@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: influxdb-pv
+  labels:
+    app: influxdb
+spec:
+  capacity:
+    storage: 200M
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  hostPath:
+    path: /var/lib/influxdb
+---
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: influxdb
+  labels:
+    app: influxdb
+spec:
+  selector:
+    matchLabels:
+      app: influxdb
+  template:
+    metadata:
+      labels:
+        app: influxdb
+    spec:
+      containers:
+      - name: influxdb
+        image: testinfluxdb:latest
+        imagePullPolicy: Never
+        ports: 
+        - containerPort: 8086
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: influxdb
+  labels:
+    app: influxdb
+spec:
+  ports:
+  - port: 8086
+    targetPort: 8086
+  type: ClusterIP
+  selector:
+    app: influxdb
