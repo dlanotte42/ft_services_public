@@ -28,7 +28,7 @@ kubectl apply -f ./srcs/config-yaml/telegraf.yaml
 #   dashboard
 
 dump=`kubectl get pod | grep mysql | grep Running`
-
+printf "Waiting mysql"
 while [[ $dump == '' ]]
 do
     dump=`kubectl get pod | grep mysql | grep Running`
