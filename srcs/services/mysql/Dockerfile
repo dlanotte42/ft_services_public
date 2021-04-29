@@ -21,6 +21,9 @@ RUN apk add mysql mysql-client
 COPY config-files/my.cnf /etc/
 COPY setup.sh /setup.sh
 COPY config-files/init_file /
+COPY wordpress.sql /
+COPY dump.sh /
+
 RUN mkdir /run/mysqld
 RUN chmod +x /setup.sh
 

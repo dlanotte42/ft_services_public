@@ -1,10 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>HTML5</title>
+<html lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ninjaflex</title>
+<script  type="text/javascript"  src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" ></script>
+<link rel="stylesheet" href="style.css">
+
+<style type="text/css">
+.ninja{
+	background-image:url(big-ninja.gif);
+	width:190px;
+	height:190px;
+	float:left;
+}
+.flex{
+	background-image:url(big-flex.gif);
+	height:190px;
+	width:190px;
+	float:left;}
+
+.ajnin{
+	background-image:url(ajnin.gif);
+}
+.xelf{
+	background-image:url(xelf.gif);
+}
+
+.wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 35px auto;
+}
+</style>
+
+<script  type="text/javascript">
+	$(document).ready(function() {	
+	$(".ninja").hover(
+	function () {
+		$(this).addClass("ajnin");
+	},
+	function () {
+		$(this).removeClass("ajnin");
+	}
+	);
+		$(".flex").hover(
+	function () {
+		$(this).addClass("xelf");
+	},
+	function () {
+		$(this).removeClass("xelf");
+	}
+	);
+	});
+</script>
+
 </head>
+
+<audio id="ninjaaa">
+  <source src="ninjaa.mp3">
+    <source src="ninjaa.wav">
+
+</audio>
+ 
+ <audio id="fleeex">
+  <source src="fleex.mp3">
+    <source src="fleex.wav">
+
+</audio>
+
 <body>
-    Ninja_flex is online<a href="phpmyadmin">here phphmyadmin</a><a href="wordpress">trullatrulla</a>
+<div style="width:380px; margin:auto; margin-top:190px; height:190px">
+
+	<div onmouseover="document.getElementById('ninjaaa').play()" class="ninja">
+	</div>
+	<div onmouseover="document.getElementById('fleeex').play()" class="flex">
+	</div>
+</div>
+<div id="link">
+	<center>
+		<div class="presentation-content">
+			<h1 class="presentation-title">More Link</h1>
+		</div>
+		<div class="top-button-group">
+			<button class="retro-button"><a href="wordpress">Wordpress</a></button>
+			<button class="retro-button"><a href="phpmyadmin">Phpmyadmin</a></button>
+			<button class="retro-button"><a href="http://localhost:3000">Grafana</a></button>
+			<button class="retro-button"><a href="http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login">Dashboard</a></button>
+		</div>
+	</center>
+</div>
 </body>
 </html>

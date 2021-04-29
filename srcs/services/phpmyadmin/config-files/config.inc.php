@@ -32,8 +32,8 @@ $cfg['Servers'][$i]['host'] = 'mysql';
 $cfg['Servers'][$i]['port'] ='3306';
 $cfg['Servers'][$i]['compress'] = false;
 $cfg['Servers'][$i]['AllowNoPassword'] = false;
-$cfg['Servers'][$i]['user'] ='wpuser';
-$cfg['Servers'][$i]['password'] ='dbpassword';
+$cfg['Servers'][$i]['user'] ='ninja_root';
+$cfg['Servers'][$i]['password'] ='ninja_password';
 
 /**
  * phpMyAdmin configuration storage settings.

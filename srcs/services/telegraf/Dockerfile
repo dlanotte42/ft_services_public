@@ -3,23 +3,23 @@
 #                                                         :::      ::::::::    #
 #    Dockerfile                                         :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zxcvbinz <zxcvbinz@student.42.fr>          +#+  +:+       +#+         #
+#    By: dlanotte <dlanotte@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/04/22 23:44:24 by zxcvbinz          #+#    #+#              #
-#    Updated: 2021/04/28 17:58:15 by zxcvbinz         ###   ########.fr        #
+#    Created: 2021/04/29 16:48:23 by dlanotte          #+#    #+#              #
+#    Updated: 2021/04/29 16:48:44 by dlanotte         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 FROM alpine:latest
-EXPOSE 21 30000 30001 30002 30003
+
+EXPOSE 8125
 
 RUN apk update
-RUN	apk upgrade
-RUN apk add vsftpd openssl openrc
-RUN mkdir -p /etc/vsftpd/
-RUN mkdir -p /home/ftptest/
-COPY config-files/vsftpd.conf /etc/vsftpd/vsftpd.conf
-COPY setup.sh .
-RUN chmod 777 setup.sh
+RUN wget https://dl.influxdata.com/telegraf/releases/telegraf-1.14.5-static_linux_amd64.tar.gz
+RUN tar xf telegraf-1.14.5-static_linux_amd64.tar.gz
+RUN cp telegraf/telegraf /usr/bin
+COPY setup.sh ./setup.sh
+RUN chmod 755 ./setup.sh
+COPY ./telegraf.conf etc/telegraf/telegraf.conf
 
-CMD ./setup.sh
+ENTRYPOINT		./setup.sh

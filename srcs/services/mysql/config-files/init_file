@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS wpdb;
-CREATE USER 'wpuser'@'%' identified by 'dbpassword';
-GRANT ALL PRIVILEGES ON wpdb.* TO 'wpuser'@'%';
+CREATE DATABASE IF NOT EXISTS wordpress;
+CREATE USER 'ninja_root'@'%' identified by 'ninja_password';
+GRANT ALL PRIVILEGES ON wordpress.* TO 'ninja_root'@'%';
 FLUSH PRIVILEGES;
